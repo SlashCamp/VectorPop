@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8" lang="sv">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- css -->
+	<style>
+		body {
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color:transparent;
+		}
+		canvas{
+			position: absolute;
+			padding:0;
+			margin:0;
+		}
+		#canvas_soft{
+			display:none;
+		}
+		#canvas_long{
+			display:none;
+		}
+		#canvas_hud { pointer-events:none; }
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+	<script type="text/javascript">
+	WebFont.load({
+		google: {
+			families: ['Inconsolata']
+		}
+	});
+
+	</script>
+
+	<!-- greensock -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.js"></script>
+
+	<!-- main -->
+	<script type="text/javascript" src="utils.js"></script>
+	<script type="text/javascript" src="settings.js"></script>
+	<script type="text/javascript" src="tutorial.js"></script>
+	<script type="text/javascript" src="levels.js"></script>
+	<script type="text/javascript" src="npc.js"></script>
+	<script type="text/javascript" src="controls.js"></script>
+	<script type="text/javascript" src="pattern.js"></script>
+	<script type="text/javascript" src="audio.js"></script>
+	<script type="text/javascript" src="character.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+
+
+</head>
+
+<body onload="
+//	console.log(document.documentElement.className)
+	var loadCheck = setInterval(function(){ timer() }, 10);
+
+	function timer() {
+		if(document.documentElement.className == 'wf-inconsolata-n4-active wf-active'){stopTimer(); gameObject.main();}
+	}
+
+	function stopTimer() {
+		clearInterval(loadCheck);
+	}
+
+	loadCheck;
+	">
+	<canvas id="canvas"></canvas>
+	<canvas id="canvas_hud"></canvas>
+	<canvas id="canvas_soft"></canvas>
+	<canvas id="canvas_long"></canvas>
+</body>
+
+</html>
